@@ -27,6 +27,25 @@ importers:
         specifier: ^8.34.0
         version: 8.34.0(eslint@9.28.0)(typescript@5.8.3)
 
+  packages/cli:
+    dependencies:
+      '@svg2ember/core':
+        specifier: workspace:*
+        version: link:../core
+      commander:
+        specifier: ^12.0.0
+        version: 12.1.0
+    devDependencies:
+      '@types/node':
+        specifier: ^20.11.0
+        version: 20.19.0
+      typescript:
+        specifier: ^5.3.0
+        version: 5.8.3
+      vitest:
+        specifier: ^1.2.0
+        version: 1.6.1(@types/node@20.19.0)
+
   packages/core:
     dependencies:
       svg-parser:
@@ -528,6 +547,10 @@ packages:
 
   color-name@1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
+
+  commander@12.1.0:
+    resolution: {integrity: sha512-Vw8qHK3bZM9y/P10u3Vib8o/DdkvA2OtPtZvD871QKjy74Wj1WSKFILMPRPSdUSx5RFK1arlJzEtA4PkFgnbuA==}
+    engines: {node: '>=18'}
 
   commander@7.2.0:
     resolution: {integrity: sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw==}
@@ -1552,6 +1575,8 @@ snapshots:
       color-name: 1.1.4
 
   color-name@1.1.4: {}
+
+  commander@12.1.0: {}
 
   commander@7.2.0: {}
 
