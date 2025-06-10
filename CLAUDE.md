@@ -6,6 +6,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 svg2ember is a PNPM monorepo that converts SVG files to Ember template-only components. The tool provides both a CLI interface and Vite plugin, similar in concept to SVGR for React but tailored for Ember applications.
 
+## Current Status
+
+**Phase**: Phase 0 - Initial Setup Complete, Core Implementation Pending
+**Active Branch**: `phase-1-core`
+**Package Status**: All packages (`core/`, `cli/`, `vite/`) exist as empty directories
+**Next Steps**: Implement core transformation logic (see PROJECT_PLAN.md for detailed roadmap)
+
+## Important References
+
+- **PROJECT_PLAN.md** - Comprehensive roadmap, implementation phases, and technical specifications
+- **README.md** - User-facing documentation with usage examples
+
 ## Architecture
 
 The project is structured as a monorepo with three main packages:
@@ -50,9 +62,24 @@ import Icon from './icon.svg?component';
 // Icon can receive class, data-* attributes that pass through to <svg>
 ```
 
+## Implementation Priorities
+
+1. **Core Package First** - Implement transformation logic before CLI or Vite plugin
+2. **AST-Based Parsing** - Use svg-parser for proper DOM structure handling (NO regex/string manipulation)
+3. **Package Dependencies** - Core is standalone, CLI and Vite depend on core
+
 ## Technical Requirements
 
-- TypeScript throughout
-- Dependencies: svg-parser, svgo
-- Output: Ember template-only components (.gjs/.gts)
-- Attribute spreading: `...attributes` applied to root `<svg>` element
+- **TypeScript** throughout all packages
+- **Key Dependencies**: svg-parser (AST parsing), svgo (optimization)
+- **Testing**: Vitest (modern TypeScript/ESM support)
+- **Output**: Ember template-only components (.gjs/.gts)
+- **Attribute Spreading**: `...attributes` applied to root `<svg>` element
+- **Publishing**: Package publishing deferred until working implementation
+
+## Development Constraints
+
+- **Parsing Approach**: Must use svg-parser AST, never regex or string manipulation
+- **Node.js**: 18+ required for modern ESM support
+- **Code Quality**: Run `pnpm lint` before commits
+- **Architecture**: Maintain clean separation between core/cli/vite packages
