@@ -18,7 +18,8 @@
   },
   "dependencies": {
     "@svg2ember/core": "workspace:*",
-    "commander": "^12.0.0"
+    "commander": "^12.0.0",
+    "glob": "^11.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.0",
