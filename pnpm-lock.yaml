@@ -151,6 +151,12 @@ importers:
       babel-plugin-ember-template-compilation:
         specifier: ^2.4.1
         version: 2.4.1
+      codejar:
+        specifier: ^4.2.0
+        version: 4.2.0
+      codejar-linenumbers:
+        specifier: ^1.0.1
+        version: 1.0.1(codejar@4.2.0)
       concurrently:
         specifier: ^9.1.2
         version: 9.1.2
@@ -223,6 +229,9 @@ importers:
       prettier-plugin-ember-template-tag:
         specifier: ^2.0.5
         version: 2.0.6(prettier@3.5.3)
+      prismjs:
+        specifier: ^1.30.0
+        version: 1.30.0
       qunit:
         specifier: ^2.24.1
         version: 2.24.1
@@ -2638,6 +2647,14 @@ packages:
   clone@2.1.2:
     resolution: {integrity: sha512-3Pe/CF1Nn94hyhIYpjtiLhdCoEoz0DqQ+988E9gmeEdQZlojxnOb74wctFyuwWQHzqyf9X7C7MG8juUpqBJT8w==}
     engines: {node: '>=0.8'}
+
+  codejar-linenumbers@1.0.1:
+    resolution: {integrity: sha512-nyJanRPlDUzWHO7HcffKpjRC7f6yU/SNQIHXhWLnZ6NuZlnFwGlo42slBHjjmK6+tcREJ7hVEwIJ3kAiYNq7lQ==}
+    peerDependencies:
+      codejar: '>= 4.0.0'
+
+  codejar@4.2.0:
+    resolution: {integrity: sha512-U8OZe+2B400W5nSSbXxaoboBN5i1hxWdBZJ9kcTy0DBuc4muwkPE/ph/MGX4yooIE8hztfNLPNU1CbcNYch69A==}
 
   collection-visit@1.0.0:
     resolution: {integrity: sha512-lNkKvzEeMBBjUGHZ+q6z9pSJla0KWAQPvtzhEV9+iGyQYG+pBpl7xKDhxoNSOZH2hhv0v5k0y2yAM4o4SjoSkw==}
@@ -5438,6 +5455,10 @@ packages:
   printf@0.6.1:
     resolution: {integrity: sha512-is0ctgGdPJ5951KulgfzvHGwJtZ5ck8l042vRkV6jrkpBzTmb/lueTqguWHy2JfVA+RY6gFVlaZgUS0j7S/dsw==}
     engines: {node: '>= 0.9.0'}
+
+  prismjs@1.30.0:
+    resolution: {integrity: sha512-DEvV2ZF2r2/63V+tK8hQvrR2ZGn10srHbXviTlcv7Kpzw8jWiNTqbVgjO3IY8RxrrOUF8VPMQQFysYYYv0YZxw==}
+    engines: {node: '>=6'}
 
   private@0.1.8:
     resolution: {integrity: sha512-VvivMrbvd2nKkiG38qjULzlc+4Vx4wm/whI9pQD35YrARNnhxeiRktSOhSukRLFNlzg6Br/cJPet5J/u19r/mg==}
@@ -9747,6 +9768,13 @@ snapshots:
 
   clone@2.1.2: {}
 
+  codejar-linenumbers@1.0.1(codejar@4.2.0):
+    dependencies:
+      codejar: 4.2.0
+      prismjs: 1.30.0
+
+  codejar@4.2.0: {}
+
   collection-visit@1.0.0:
     dependencies:
       map-visit: 1.0.0
@@ -13047,6 +13075,8 @@ snapshots:
       react-is: 18.3.1
 
   printf@0.6.1: {}
+
+  prismjs@1.30.0: {}
 
   private@0.1.8: {}
 
