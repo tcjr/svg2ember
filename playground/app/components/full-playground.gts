@@ -1,8 +1,10 @@
 import Component from '@glimmer/component';
 import type Owner from '@ember/owner';
 import { tracked } from '@glimmer/tracking';
-
 import Editor from 'playground/components/editor.gts';
+import { transform } from '@svg2ember/core';
+import { Form } from 'ember-primitives';
+import { TrackedObject } from 'tracked-built-ins';
 
 const INITIAL_CODE = `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="48px" height="1px" viewBox="0 0 48 1" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -29,37 +31,98 @@ export interface FullPlaygroundSignature {
   Element: HTMLDivElement;
 }
 
-// TODO: replace with real conversion
-const doTheCodeConversion = (inputCode: string) => {
-  return `coverted
-  ${inputCode}
-code`;
-};
-
 export default class FullPlayground extends Component<FullPlaygroundSignature> {
   constructor(owner: Owner, args: FullPlaygroundSignature['Args']) {
     super(owner, args);
     this.currentInputCode = INITIAL_CODE;
-    this.currentOutputCode = doTheCodeConversion(this.currentInputCode);
+    this.doTheCodeConversion();
   }
 
-  currentInputCode: string;
+  @tracked currentInputCode: string;
   @tracked currentOutputCode: string;
+  options = new TrackedObject({
+    typescript: false,
+    optimize: true,
+  });
 
   codeChangeHandler = (code: string) => {
     console.log('PLAYGROUND code change', code);
     this.currentInputCode = code;
-    this.currentOutputCode = doTheCodeConversion(code);
+    this.doTheCodeConversion();
+  };
+
+  doTheCodeConversion = () => {
+    try {
+      const result = transform(this.currentInputCode, {
+        typescript: this.options.typescript,
+        optimize: this.options.optimize,
+      });
+      this.currentOutputCode = result.code;
+      // return result.code;
+    } catch (err) {
+      // TODO: more robust reporting here
+      this.currentOutputCode = 'Error';
+    }
+  };
+
+  updateOptions = (newValues) => {
+    console.log('UPDATE OPTIONS CALLED', newValues);
+    for (let [key, value] of Object.entries(newValues)) {
+      if (this.options[key] !== value) {
+        this.options[key] = value; // only update changed values
+      }
+    }
+    // Re-run conversion when options change
+    this.doTheCodeConversion();
   };
 
   <template>
     <div class="grid grid-cols-[min-content_1fr] gap-0.5" ...attributes>
-      <div class="w-48 bg-pink-300">
-        (options/settings)
+      <div class="w-48">
+        <div class="bg-accent border flex justify-between">
+          <h3 class="text-xs px-1 uppercase font-semibold">Options</h3>
+        </div>
+        <div>
+          <Form @onChange={{this.updateOptions}}>
+
+            <fieldset class="fieldset w-full p-4">
+              {{! <legend class="fieldset-legend">Options</legend> }}
+              <label class="label">
+                <input
+                  type="checkbox"
+                  checked={{this.options.typescript}}
+                  class="checkbox"
+                  name="typescript"
+                />
+                TypeScript
+              </label>
+              <label class="label">
+                <input
+                  type="checkbox"
+                  checked={{this.options.optimize}}
+                  class="checkbox"
+                  name="optimize"
+                />
+                Optimize
+              </label>
+              <label class="label">
+                <input
+                  type="checkbox"
+                  checked={{this.options.prettier}}
+                  class="checkbox"
+                  name="prettier"
+                  disabled
+                />
+                Prettier
+              </label>
+            </fieldset>
+          </Form>
+        </div>
+
       </div>
-      <div class="grid grid-cols-2 gap-0.5 bg-green-300">
+      <div class="grid grid-cols-2 gap-0.5 bg-base-300">
         <div
-          class="grid grid-rows-[min-content_1fr] bg-yellow-300"
+          class="grid grid-rows-[min-content_1fr]"
           data-input-editor-container
         >
           <div class="bg-accent border flex justify-between">
@@ -70,14 +133,16 @@ export default class FullPlayground extends Component<FullPlaygroundSignature> {
           </div>
         </div>
         <div
-          class="grid grid-rows-[min-content_1fr] bg-blue-300"
+          class="grid grid-rows-[min-content_1fr]"
           data-output-editor-container
         >
           <div class="bg-accent border flex justify-between">
             <h3 class="text-xs px-1 uppercase font-semibold">Component Output</h3>
           </div>
-          <div class="bg-base-200 overflow-hidden">
-            <pre>{{this.currentOutputCode}}</pre>
+          <div class="bg-base-200 overflow-x-scroll">
+            {{!-- <pre>{{this.currentOutputCode}}</pre> --}}
+            <Editor @code={{this.currentOutputCode}} />
+
           </div>
         </div>
       </div>
