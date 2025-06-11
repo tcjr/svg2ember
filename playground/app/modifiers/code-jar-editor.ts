@@ -38,14 +38,21 @@ export default class CodeJarEditorModifier extends Modifier<CodeJarEditorSignatu
     named: NamedArgs<CodeJarEditorSignature>
   ) {
     if (this.#isInstalled) {
-      console.log('ALREADY INSTALLED');
+      console.log('[code-jar-editor modifier] ALREADY INSTALLED');
+      // Already installed, so just update the data
+      this.#jar?.updateCode(named.code);
     } else {
       this.#isInstalled = true;
-      console.log('Setting up...', element);
+      console.log('[code-jar-editor modifier] Setting up...', element);
       const jar = CodeJar(element, withLineNumbers(Prism.highlightElement));
       this.#jar = jar;
-      console.log('jar is ', this.#jar);
+      console.log('[code-jar-editor modifier] jar is ', this.#jar);
       this.#jar.updateCode(named.code);
+
+      this.#jar.onUpdate((code) => {
+        console.log('[code-jar-editor modifier] onUpdate called with', code);
+        named.codeChanged?.(code);
+      });
     }
   }
 }
