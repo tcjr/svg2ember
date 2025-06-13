@@ -14,10 +14,12 @@ svg2ember is a TypeScript-based tool for converting SVG files into Ember templat
 
 ### Monorepo Structure
 ```
-packages/
-├── core/     # Core transformation logic
-├── cli/      # Command-line interface
-└── vite/     # Vite plugin for development workflow
+svg2ember (root)
+├── packages/
+│   ├── core/     # Core transformation logic
+│   ├── cli/      # Command-line interface
+│   └── vite/     # Vite plugin for development workflow
+└── website/      # Ember app for documentation/playground
 ```
 
 ### Data Flow
