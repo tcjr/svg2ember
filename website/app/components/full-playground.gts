@@ -67,7 +67,7 @@ export default class FullPlayground extends Component<FullPlaygroundSignature> {
 
   updateOptions = (newValues) => {
     console.log('UPDATE OPTIONS CALLED', newValues);
-    for (let [key, value] of Object.entries(newValues)) {
+    for (const [key, value] of Object.entries(newValues)) {
       if (this.options[key] !== value) {
         this.options[key] = value; // only update changed values
       }

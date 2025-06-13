@@ -1,6 +1,6 @@
 import type { TOC } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
-import Playground from 'website/components/full-playground.gts';
+import { LinkTo } from '@ember/routing';
 
 interface IndexSignature {
   Args: {
@@ -10,7 +10,12 @@ interface IndexSignature {
 }
 
 <template>
-  {{pageTitle "Playground"}}
-  {{! NOTE: the 50px here is the exact height of header tag in application template }}
-  <Playground class="h-[calc(100vh-50px)]" />
+  {{pageTitle "Home"}}
+  <p>
+    Convert SVGs to Ember components at build-time.
+  </p>
+  <p>
+    Try it out in the
+    <LinkTo @route="playground" class="link">Playground</LinkTo>.
+  </p>
 </template> satisfies TOC<IndexSignature>;
