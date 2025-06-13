@@ -69,11 +69,16 @@ function generateEmberComponent(
   svgElement: SvgNode,
   typescript: boolean,
 ): string {
-  // Convert AST back to SVG string with attributes spread
-  const svgString = astToSvgString(svgElement);
+  // Add a marker for ...attributes to the root svg element's properties
+  // SvgNode properties are optional, so ensure it exists.
+  // svgElement is guaranteed to be an 'element' type here due to prior checks.
+  if (!svgElement.properties) {
+    svgElement.properties = {};
+  }
+  svgElement.properties['__spreadAttributes__'] = 1;
 
-  // Add ...attributes spread to the root svg element
-  const svgWithAttributes = addAttributesSpread(svgString);
+  // Convert AST back to SVG string; astToSvgString will handle the spread
+  const svgWithAttributes = astToSvgString(svgElement);
 
   if (typescript) {
     return `import type { TOC } from '@ember/component/template-only';
@@ -82,11 +87,11 @@ interface Signature {
   Element: SVGSVGElement;
 }
 
-const IconComponent: TOC<Signature> = <template>
+const SvgComponent: TOC<Signature> = <template>
   ${svgWithAttributes}
 </template>;
 
-export default IconComponent;`;
+export default SvgComponent;`;
   } else {
     return `<template>
   ${svgWithAttributes}
@@ -103,7 +108,12 @@ function astToSvgString(element: SvgNode): string {
 
   // Convert properties to attribute string
   const attrs = Object.entries(properties)
-    .map(([key, value]) => `${key}="${value}"`)
+    .map(([key, value]) => {
+      if (key === '__spreadAttributes__' && value === 1) {
+        return '...attributes';
+      }
+      return `${key}="${value}"`;
+    })
     .join(' ');
 
   const attrsString = attrs ? ` ${attrs}` : '';
@@ -117,9 +127,4 @@ function astToSvgString(element: SvgNode): string {
     .join('');
 
   return `<${tagName}${attrsString}>${childrenString}</${tagName}>`;
-}
-
-function addAttributesSpread(svgString: string): string {
-  // Add ...attributes to the opening svg tag
-  return svgString.replace(/^<svg([^>]*)>/, '<svg$1 ...attributes>');
 }
