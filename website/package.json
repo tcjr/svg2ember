@@ -56,6 +56,7 @@
     "@glint/template": "^1.5.2",
     "@rollup/plugin-babel": "^6.0.4",
     "@svg2ember/core": "workspace:*",
+    "@svg2ember/vite": "workspace:*",
     "@tailwindcss/vite": "^4.1.8",
     "@types/qunit": "^2.19.12",
     "@types/rsvp": "^4.0.9",
@@ -97,7 +98,8 @@
     "tracked-built-ins": "^4.0.0",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.32.1",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "vite-plugin-inspect": "^11.1.0"
   },
   "engines": {
     "node": ">= 18"
