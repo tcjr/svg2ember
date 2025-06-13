@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "Core transformation logic for converting SVG files to Ember components",
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {

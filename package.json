@@ -2,6 +2,9 @@
   "name": "svg2ember",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": ">=20"
+  },
   "main": "index.js",
   "scripts": {
     "build": "pnpm -r run build",

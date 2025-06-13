@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "Command-line interface for converting SVG files to Ember components",
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "main": "dist/index.js",
   "bin": {
     "svg2ember-cli": "dist/cli.js"
