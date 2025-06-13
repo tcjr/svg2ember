@@ -18,4 +18,9 @@ interface IndexSignature {
     Try it out in the
     <LinkTo @route="playground" class="link">Playground</LinkTo>.
   </p>
+  <p>
+
+    <LinkTo @route="compare" class="link">Compare imports</LinkTo>
+  </p>
+  <hr />
 </template> satisfies TOC<IndexSignature>;
