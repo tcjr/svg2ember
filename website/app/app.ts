@@ -2,9 +2,9 @@ import Application from '@ember/application';
 import compatModules from '@embroider/virtual/compat-modules';
 import Resolver from 'ember-resolver';
 import loadInitializers from 'ember-load-initializers';
-import config from 'playground/config/environment';
+import config from 'website/config/environment';
 import { importSync, isDevelopingApp, macroCondition } from '@embroider/macros';
-import 'playground/styles/app.css';
+import 'website/styles/app.css';
 
 if (macroCondition(isDevelopingApp())) {
   importSync('./deprecation-workflow');

@@ -1,6 +1,6 @@
 import type { TOC } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
-import Editor from 'playground/components/editor.gts';
+import Editor from 'website/components/editor.gts';
 
 interface EditingSignature {
   Args: {

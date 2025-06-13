@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import codeJarEditor from 'playground/modifiers/code-jar-editor.ts';
+import codeJarEditor from 'website/modifiers/code-jar-editor.ts';
 
 export interface EditorSignature {
   // The arguments accepted by the component

@@ -1,7 +1,7 @@
 import loadConfigFromMeta from '@embroider/config-meta-loader';
 import { assert } from '@ember/debug';
 
-const config = loadConfigFromMeta('playground') as unknown;
+const config = loadConfigFromMeta('website') as unknown;
 
 assert(
   'config is not an object',

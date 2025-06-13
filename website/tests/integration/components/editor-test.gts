@@ -1,9 +1,9 @@
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'playground/tests/helpers';
+import { setupRenderingTest } from 'website/tests/helpers';
 import { render } from '@ember/test-helpers';
-import FullPlayground from 'playground/components/full-playground';
+import Editor from 'website/components/editor';
 
-module('Integration | Component | full-playground', function (hooks) {
+module('Integration | Component | editor', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
@@ -12,16 +12,18 @@ module('Integration | Component | full-playground', function (hooks) {
     // and update using state.myProperty = 1; await rerender();
     // Handle any actions with function myAction(val) { ... };
 
-    await render(<template><FullPlayground /></template>);
+    await render(<template><Editor /></template>);
 
     assert.dom().hasText('');
 
     // Template block usage:
-    await render(<template>
-      <FullPlayground>
-        template block text
-      </FullPlayground>
-    </template>);
+    await render(
+      <template>
+        <Editor>
+          template block text
+        </Editor>
+      </template>
+    );
 
     assert.dom().hasText('template block text');
   });

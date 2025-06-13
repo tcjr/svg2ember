@@ -1,6 +1,6 @@
 import type { TOC } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
-import Playground from 'playground/components/full-playground.gts';
+import Playground from 'website/components/full-playground.gts';
 
 interface IndexSignature {
   Args: {

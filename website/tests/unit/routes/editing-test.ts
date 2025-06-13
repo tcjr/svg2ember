@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { setupTest } from 'playground/tests/helpers';
+import { setupTest } from 'website/tests/helpers';
 
 module('Unit | Route | editing', function (hooks) {
   setupTest(hooks);

@@ -68,7 +68,7 @@ importers:
         specifier: ^1.2.0
         version: 1.6.1(@types/node@20.19.0)(jsdom@25.0.1)(lightningcss@1.30.1)(terser@5.42.0)
 
-  playground:
+  website:
     devDependencies:
       '@babel/core':
         specifier: ^7.27.1

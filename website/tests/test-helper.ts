@@ -1,5 +1,5 @@
-import Application from 'playground/app';
-import config from 'playground/config/environment';
+import Application from 'website/app';
+import config from 'website/config/environment';
 import * as QUnit from 'qunit';
 import { setApplication } from '@ember/test-helpers';
 import { setup } from 'qunit-dom';
