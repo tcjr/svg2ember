@@ -1,6 +1,7 @@
 import type { TOC } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
 
+import IllinoisUrl from 'website/svgs/THE_STATE_OF_ILLINOIS.svg';
 import Illinois from 'website/svgs/THE_STATE_OF_ILLINOIS.svg?component';
 
 interface CompareSignature {
@@ -13,7 +14,12 @@ interface CompareSignature {
 <template>
   {{pageTitle "Compare"}}
   <div>
-    <Illinois class="h-20 w-20 fill-primary stroke-primary" />
+    <h2>url image import</h2>
+    <img src={{IllinoisUrl}} class="h-20 w-20" alt="illinois" />
+    <hr />
+
+    <h2><code>?component</code> import</h2>
+    <Illinois class="h-20 w-20 fill-primary stroke-primary text-primary" />
     <hr />
 
   </div>
