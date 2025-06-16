@@ -96,10 +96,10 @@ The CLI package (`@svg2ember/cli`) is fully implemented with:
 - `svg2ember-cli -i -o components -t icons/` - Full feature usage
 
 ### Phase 3: Vite Plugin
-- [ ] Set up Vite plugin package structure
-- [ ] Implement `?component` query parameter handling
-- [ ] Ensure proper attribute spreading to `<svg>` element
-- [ ] Handle both component and URL imports
+- [x] Set up Vite plugin package structure
+- [x] Implement `?component` query parameter handling
+- [x] Ensure proper attribute spreading to `<svg>` element
+- [x] Handle both component and URL imports
 - [ ] Add plugin tests and examples
 
 ### Phase 4: Documentation & Publishing
