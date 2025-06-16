@@ -75,10 +75,11 @@ Transforms SVG content into an Ember component.
 
 ### `TransformOptions`
 
-| Option       | Type                  | Default | Description                                                           |
-| ------------ | --------------------- | ------- | --------------------------------------------------------------------- |
-| `typescript` | `boolean`             | `false` | Generate TypeScript component (`.gts`) instead of JavaScript (`.gjs`) |
-| `optimize`   | `boolean` \| `Config` | `true`  | Enable SVGO optimization or provide custom SVGO config                |
+| Option       | Type      | Default | Description                                                           |
+| ------------ | --------- | ------- | --------------------------------------------------------------------- |
+| `typescript` | `boolean` | `false` | Generate TypeScript component (`.gts`) instead of JavaScript (`.gjs`) |
+| `optimize`   | `boolean` | `true`  | Enable or disable SVGO optimization.                                  |
+| `svgoConfig` | `object`  | `{}`    | Custom SVGO configuration. Used if `optimize` is `true`.              |
 
 ## Generated Component Structure
 
