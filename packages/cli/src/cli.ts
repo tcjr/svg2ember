@@ -27,9 +27,9 @@ program
     'Skip files that already exist in output',
     false,
   )
-  .option('--no-optimize', 'Disable SVG optimization', false)
+  .option('--no-optimize', 'Disable SVG optimization') // Defaults to true, false if flag is present
   .action(async (input: string, output: string | undefined, options) => {
-    const { typescript, outDir, ignoreExisting } = options;
+    const { typescript, outDir, ignoreExisting, optimize } = options;
 
     try {
       const inputStat = await stat(input);
@@ -50,6 +50,7 @@ program
           outDir,
           typescript,
           ignoreExisting,
+          optimize,
         });
 
         if (result.success && result.errors.length === 0) {
@@ -87,6 +88,7 @@ program
           inputPath: input,
           outputPath: output,
           typescript,
+          optimize,
         });
 
         if (result.success) {

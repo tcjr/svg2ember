@@ -7,7 +7,12 @@ import type { TransformFileOptions, TransformResult } from './types.js';
 export async function transformFile(
   options: TransformFileOptions,
 ): Promise<TransformResult> {
-  const { inputPath, outputPath, typescript = false } = options;
+  const {
+    inputPath,
+    outputPath,
+    typescript = false,
+    optimize = true, // Default to true if not provided
+  } = options;
 
   try {
     // Validate input file
@@ -21,7 +26,7 @@ export async function transformFile(
     const svgContent = await readFile(resolvedInputPath, 'utf-8');
 
     // Transform using core package
-    const result = transform(svgContent, { typescript });
+    const result = transform(svgContent, { typescript, optimize });
 
     // Determine output path
     let resolvedOutputPath: string;

@@ -9,6 +9,7 @@ export interface DirectoryTransformOptions {
   outDir?: string;
   typescript?: boolean;
   ignoreExisting?: boolean;
+  optimize?: boolean;
 }
 
 export interface DirectoryTransformResult {
@@ -28,6 +29,7 @@ export async function transformDirectory(
     outDir,
     typescript = false,
     ignoreExisting = false,
+    optimize = true, // Default to true if not provided
   } = options;
 
   const result: DirectoryTransformResult = {
@@ -127,6 +129,7 @@ export async function transformDirectory(
           inputPath: svgFile,
           outputPath,
           typescript,
+          optimize,
         });
 
         if (transformResult.success) {
