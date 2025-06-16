@@ -12,7 +12,7 @@ export interface EditorSignature {
 }
 
 export default class Editor extends Component<EditorSignature> {
-  onCodeChange = (updatedCode) => {
+  onCodeChange = (updatedCode: string) => {
     console.log('[editor component] code changed!', updatedCode);
     this.args.update?.(updatedCode);
   };

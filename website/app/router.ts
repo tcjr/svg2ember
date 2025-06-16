@@ -9,5 +9,9 @@ export default class Router extends EmberRouter {
 Router.map(function () {
   this.route('playground');
   this.route('compare');
-  this.route('cli');
+  this.route('docs', function () {
+    this.route('cli');
+    this.route('core');
+    this.route('vite');
+  });
 });

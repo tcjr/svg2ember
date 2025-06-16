@@ -19,11 +19,10 @@ interface IndexSignature {
     <LinkTo @route="playground" class="link">Playground</LinkTo>.
   </p>
   <p>
-
     <LinkTo @route="compare" class="link">Compare imports</LinkTo>
   </p>
   <p>
-    <LinkTo @route="cli" class="link">CLI Documentation</LinkTo>
+    <LinkTo @route="docs" class="link">Documentation</LinkTo>
   </p>
   <hr />
 </template> satisfies TOC<IndexSignature>;

@@ -29,6 +29,7 @@ const INITIAL_CODE = `<?xml version="1.0" encoding="UTF-8"?>
 
 export interface FullPlaygroundSignature {
   Element: HTMLDivElement;
+  Args: object;
 }
 
 export default class FullPlayground extends Component<FullPlaygroundSignature> {
@@ -39,7 +40,7 @@ export default class FullPlayground extends Component<FullPlaygroundSignature> {
   }
 
   @tracked currentInputCode: string;
-  @tracked currentOutputCode: string;
+  @tracked currentOutputCode: string = '';
   options = new TrackedObject({
     typescript: false,
     optimize: true,
@@ -60,16 +61,22 @@ export default class FullPlayground extends Component<FullPlaygroundSignature> {
       this.currentOutputCode = result.code;
       // return result.code;
     } catch (err) {
+      console.error(err);
       // TODO: more robust reporting here
       this.currentOutputCode = 'Error';
     }
   };
 
-  updateOptions = (newValues) => {
+  updateOptions = (
+    newValues: { [s: string]: unknown } | ArrayLike<unknown>
+  ) => {
     console.log('UPDATE OPTIONS CALLED', newValues);
     for (const [key, value] of Object.entries(newValues)) {
-      if (this.options[key] !== value) {
-        this.options[key] = value; // only update changed values
+      if (
+        this.options[key as keyof typeof this.options] !== value &&
+        key in this.options
+      ) {
+        this.options[key as keyof typeof this.options] = value as boolean; // only update changed values
       }
     }
     // Re-run conversion when options change
@@ -108,7 +115,7 @@ export default class FullPlayground extends Component<FullPlaygroundSignature> {
               <label class="label">
                 <input
                   type="checkbox"
-                  checked={{this.options.prettier}}
+                  checked={{false}}
                   class="checkbox"
                   name="prettier"
                   disabled
