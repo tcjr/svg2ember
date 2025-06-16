@@ -8,10 +8,9 @@ import Inspect from 'vite-plugin-inspect';
 export default defineConfig({
   plugins: [
     Inspect(),
-    svg2ember({ optimize: true, typescript: true }),
+    svg2ember(),
     classicEmberSupport(),
     ember(),
-    // extra plugins here
     babel({
       babelHelpers: 'runtime',
       extensions,
