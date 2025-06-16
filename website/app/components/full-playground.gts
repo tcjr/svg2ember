@@ -60,10 +60,16 @@ export default class FullPlayground extends Component<FullPlaygroundSignature> {
       });
       this.currentOutputCode = result.code;
       // return result.code;
-    } catch (err) {
-      console.error(err);
+    } catch (err: unknown) {
+      let errorMessage = 'An unknown error occurred during transformation.';
+      if (err instanceof Error) {
+        errorMessage = `Transformation Error: ${err.message}`;
+      } else if (typeof err === 'string') {
+        errorMessage = err;
+      }
+      console.error(errorMessage);
       // TODO: more robust reporting here
-      this.currentOutputCode = 'Error';
+      this.currentOutputCode = errorMessage;
     }
   };
 

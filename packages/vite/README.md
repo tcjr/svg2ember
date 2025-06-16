@@ -8,7 +8,7 @@ A Vite plugin for converting SVG imports to Ember template-only components durin
 npm install @svg2ember/vite
 # or
 pnpm add @svg2ember/vite
-# or  
+# or
 yarn add @svg2ember/vite
 ```
 
@@ -19,15 +19,15 @@ yarn add @svg2ember/vite
 Add the plugin to your `vite.config.js` or `vite.config.mjs`:
 
 ```js
-import { defineConfig } from 'vite';
-import svg2ember from '@svg2ember/vite';
+import { defineConfig } from "vite";
+import svg2ember from "@svg2ember/vite";
 
 export default defineConfig({
   plugins: [
     svg2ember({
       // Optional configuration
-      typescript: false,  // Set to true for .gts components
-      optimize: true,      // Enable SVGO optimization
+      typescript: false, // Set to true for .gts components
+      optimize: true, // Enable SVGO optimization
     }),
     // ... other plugins
   ],
@@ -48,7 +48,7 @@ import myIconUrl from './assets/my-icon.svg';
 <template>
   {{! Use as component with attribute spreading }}
   <MyIcon class="w-6 h-6 text-blue-500" data-testid="my-icon" />
-  
+
   {{! Traditional img tag }}
   <img src={{myIconUrl}} alt="My Icon" />
 </template>
@@ -58,18 +58,18 @@ import myIconUrl from './assets/my-icon.svg';
 
 The plugin accepts the same options as `@svg2ember/core`:
 
-| Option | Type | Default | Description |
-|--------|------|---------|-------------|
-| `typescript` | `boolean` | `false` | Generate `.gts` (TypeScript) instead of `.gjs` (JavaScript) components |
-| `optimize` | `boolean` \| `object` | `true` | Enable SVGO optimization or pass SVGO config object |
+| Option       | Type                  | Default | Description                                                            |
+| ------------ | --------------------- | ------- | ---------------------------------------------------------------------- |
+| `typescript` | `boolean`             | `false` | Generate `.gts` (TypeScript) instead of `.gjs` (JavaScript) components |
+| `optimize`   | `boolean` \| `object` | `true`  | Enable SVGO optimization or pass SVGO config object                    |
 
 ### TypeScript Configuration
 
 When using TypeScript, add this to your type definitions to enable proper import types:
 
 ```ts
-declare module '*.svg?component' {
-  import type { TOC } from '@ember/component/template-only';
+declare module "*.svg?component" {
+  import type { TOC } from "@ember/component/template-only";
 
   interface SvgSignature {
     Element: SVGSVGElement;
@@ -93,6 +93,7 @@ declare module '*.svg?component' {
 ## Generated Component Structure
 
 Input SVG:
+
 ```svg
 <svg viewBox="0 0 24 24" fill="none">
   <path d="M12 2L2 7v10c0 5.55 3.84 10 9 11"/>
@@ -100,6 +101,7 @@ Input SVG:
 ```
 
 Generated Ember Component (`.gjs`):
+
 ```gjs
 <template>
   <svg viewBox="0 0 24 24" fill="none" ...attributes>
@@ -111,6 +113,7 @@ Generated Ember Component (`.gjs`):
 ## Integration with Ember
 
 The plugin works seamlessly with:
+
 - **Embroider** + Vite setups
 - **Modern Ember** applications using `<template>` syntax
 - **Template-only components** and the `...attributes` spread
@@ -119,6 +122,7 @@ The plugin works seamlessly with:
 ## Examples
 
 ### Basic Usage
+
 ```gts
 import CheckIcon from './icons/check.svg?component';
 
@@ -128,12 +132,13 @@ import CheckIcon from './icons/check.svg?component';
 ```
 
 ### With Custom Attributes
+
 ```gts
 import StarIcon from './icons/star.svg?component';
 
 <template>
-  <StarIcon 
-    class="text-yellow-400 w-8 h-8" 
+  <StarIcon
+    class="text-yellow-400 w-8 h-8"
     data-rating="5"
     aria-label="5 star rating"
   />
@@ -141,6 +146,7 @@ import StarIcon from './icons/star.svg?component';
 ```
 
 ### Multiple Instances with Different Styling
+
 ```gts
 import HeartIcon from './icons/heart.svg?component';
 

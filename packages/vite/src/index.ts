@@ -52,10 +52,14 @@ export default function svg2ember(
             code: componentCode,
             map: null, // No sourcemap for this simple transformation
           };
-        } catch (e: any) {
-          this.error(
-            `Failed to load or transform ${originalSvgPath}: ${e.message}`,
-          );
+        } catch (e: unknown) {
+          let errorMessage = `Failed to load or transform ${originalSvgPath}: Unknown error`;
+          if (e instanceof Error) {
+            errorMessage = `Failed to load or transform ${originalSvgPath}: ${e.message}`;
+          } else if (typeof e === 'string') {
+            errorMessage = `Failed to load or transform ${originalSvgPath}: ${e}`;
+          }
+          this.error(errorMessage);
           return null;
         }
       }

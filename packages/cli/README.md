@@ -5,6 +5,7 @@ Command-line interface for converting SVG files to Ember template-only component
 ## Installation
 
 ### Global Installation
+
 ```bash
 npm install -g @svg2ember/cli
 # or
@@ -14,6 +15,7 @@ yarn global add @svg2ember/cli
 ```
 
 ### Local Installation
+
 ```bash
 npm install @svg2ember/cli
 # or
@@ -53,13 +55,13 @@ svg2ember-cli --typescript --out-dir src/components/icons assets/svg/
 
 ## Command-Line Options
 
-| Option | Alias | Description |
-|--------|-------|-------------|
-| `--typescript` | `-t` | Generate TypeScript components (`.gts`) instead of JavaScript (`.gjs`) |
-| `--out-dir <dir>` | `-o` | Output directory for batch processing |
-| `--ignore-existing` | `-i` | Skip files that already exist in output location |
-| `--help` | `-h` | Display help information |
-| `--version` | `-V` | Display version number |
+| Option              | Alias | Description                                                            |
+| ------------------- | ----- | ---------------------------------------------------------------------- |
+| `--typescript`      | `-t`  | Generate TypeScript components (`.gts`) instead of JavaScript (`.gjs`) |
+| `--out-dir <dir>`   | `-o`  | Output directory for batch processing                                  |
+| `--ignore-existing` | `-i`  | Skip files that already exist in output location                       |
+| `--help`            | `-h`  | Display help information                                               |
+| `--version`         | `-V`  | Display version number                                                 |
 
 ## Examples
 
@@ -115,6 +117,7 @@ svg2ember-cli -t -o components -i icons/
 ## Generated Components
 
 The CLI uses `@svg2ember/core` to generate components with:
+
 - Proper Ember template syntax
 - `...attributes` spread on root `<svg>` element
 - Optimized SVG content (via SVGO)
@@ -123,6 +126,7 @@ The CLI uses `@svg2ember/core` to generate components with:
 ### Example Output
 
 **Input: `star.svg`**
+
 ```svg
 <svg viewBox="0 0 24 24" fill="none">
   <path d="M12 2L2 7v10c0 5.55 3.84 10 9 11"/>
@@ -130,6 +134,7 @@ The CLI uses `@svg2ember/core` to generate components with:
 ```
 
 **Output: `star.gjs`**
+
 ```gjs
 <template>
   <svg viewBox="0 0 24 24" fill="none" ...attributes>
@@ -141,6 +146,7 @@ The CLI uses `@svg2ember/core` to generate components with:
 ## File Handling
 
 ### Directory Structure Preservation
+
 When processing directories, the CLI maintains the source directory structure:
 
 ```
@@ -164,12 +170,15 @@ components/
 ```
 
 ### Existing File Handling
+
 - By default, existing files are overwritten
 - Use `--ignore-existing` to skip files that already exist
 - The CLI reports which files were processed, skipped, or failed
 
 ### Error Handling
+
 The CLI provides detailed error messages for:
+
 - Invalid SVG files
 - Permission errors
 - Missing directories
@@ -178,6 +187,7 @@ The CLI provides detailed error messages for:
 ## Integration with Build Tools
 
 ### NPM Scripts
+
 ```json
 {
   "scripts": {
@@ -188,6 +198,7 @@ The CLI provides detailed error messages for:
 ```
 
 ### Continuous Integration
+
 ```yaml
 # .github/workflows/build.yml
 - name: Generate Ember components from SVGs
