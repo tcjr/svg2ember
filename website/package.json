@@ -106,5 +106,8 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "@phosphor-icons/core": "^2.1.1"
   }
 }
