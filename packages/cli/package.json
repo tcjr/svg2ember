@@ -16,8 +16,8 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "test": "vitest",
-    "test:coverage": "vitest --coverage"
+    "test": "vitest run",
+    "test:watch": "vitest watch"
   },
   "dependencies": {
     "@svg2ember/core": "workspace:*",
