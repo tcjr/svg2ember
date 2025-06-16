@@ -22,5 +22,8 @@ interface IndexSignature {
 
     <LinkTo @route="compare" class="link">Compare imports</LinkTo>
   </p>
+  <p>
+    <LinkTo @route="cli" class="link">CLI Documentation</LinkTo>
+  </p>
   <hr />
 </template> satisfies TOC<IndexSignature>;
