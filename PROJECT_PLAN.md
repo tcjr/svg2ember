@@ -159,12 +159,12 @@ The CLI package (`@svg2ember/cli`) is fully implemented with:
 
 ## Success Criteria
 
-### Minimum Viable Product ✅ COMPLETE
+### Minimum Viable Product 
 - ✅ Core package can transform basic SVG to Ember component
 - ✅ CLI can process single files and directories
-- ✅ Generated components work in Ember applications with attribute spreading
+- [ ] Generated components work in Ember applications with attribute spreading
 
-**Status**: MVP fully implemented! Both core transformation and CLI functionality are complete and ready for use.
+**Status**: MVP nearly implemented. Core transformation and CLI functionality are complete and ready for use. Vite plugin is partially implemented awaiting thorough testing.
 
 ### Full Feature Set
 - Vite plugin enables seamless development workflow
