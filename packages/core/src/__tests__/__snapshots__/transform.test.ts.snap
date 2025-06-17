@@ -49,3 +49,15 @@ const IconComponent: TOC<Signature> = <template>
 
 export default IconComponent;"
 `;
+
+exports[`transform > should transform empty SVG 1`] = `
+"<template>
+  <svg ...attributes>{{yield}}</svg>
+</template>"
+`;
+
+exports[`transform > should transform empty self-closing SVG 1`] = `
+"<template>
+  <svg ...attributes>{{yield}}</svg>
+</template>"
+`;
