@@ -11,7 +11,7 @@ describe('transformDirectory', () => {
     // Create a temporary directory for each test
     testDir = join(
       tmpdir(),
-      `svg2ember-dir-test-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+      `svg2ember-dir-test-${Date.now()}-${Math.random().toString(36).slice(2, 11)}`,
     );
     await mkdir(testDir, { recursive: true });
   });
