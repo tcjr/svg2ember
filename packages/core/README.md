@@ -45,7 +45,8 @@ console.log(result.extension);
 
 ```js
 const result = transform(svgContent, {
-  optimize: {
+  optimize: true,
+  svgoConfig: {
     plugins: [
       "preset-default",
       {

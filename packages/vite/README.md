@@ -58,10 +58,11 @@ import myIconUrl from './assets/my-icon.svg';
 
 The plugin accepts the same options as `@svg2ember/core`:
 
-| Option       | Type                  | Default | Description                                                            |
-| ------------ | --------------------- | ------- | ---------------------------------------------------------------------- |
-| `typescript` | `boolean`             | `false` | Generate `.gts` (TypeScript) instead of `.gjs` (JavaScript) components |
-| `optimize`   | `boolean` \| `object` | `true`  | Enable SVGO optimization or pass SVGO config object                    |
+| Option       | Type      | Default | Description                                                            |
+| ------------ | --------- | ------- | ---------------------------------------------------------------------- |
+| `typescript` | `boolean` | `false` | Generate `.gts` (TypeScript) instead of `.gjs` (JavaScript) components |
+| `optimize`   | `boolean` | `true`  | Enable SVGO optimization                                               |
+| `svgoConfig` | `object`  | `{}`    | Pass SVGO config object                                                |
 
 ### TypeScript Configuration
 
