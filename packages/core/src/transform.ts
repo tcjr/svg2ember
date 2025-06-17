@@ -116,7 +116,10 @@ function astToSvgString(element: SvgNode): string {
     .map((child: SvgNode) => astToSvgString(child))
     .join('');
 
-  return `<${tagName}${attrsString}>${childrenString}</${tagName}>`;
+  // Insert {{yield}} before closing `</svg>`
+  const yieldString = '{{yield}}';
+
+  return `<${tagName}${attrsString}>${childrenString}${yieldString}</${tagName}>`;
 }
 
 function addAttributesSpread(svgString: string): string {
