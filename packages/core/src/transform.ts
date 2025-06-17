@@ -1,6 +1,21 @@
 import { parse, type SvgNode } from 'svg-parser';
-import { optimize } from 'svgo';
+import { optimize, type Config } from 'svgo';
 import type { TransformOptions, TransformResult } from './types.js';
+
+export const DEFAULT_SVGO_CONFIG: Config = {
+  multipass: true,
+  plugins: [
+    {
+      name: 'preset-default',
+      params: {
+        overrides: {
+          removeViewBox: false,
+        },
+      },
+    },
+    'removeXMLNS',
+  ],
+};
 
 export function transform(
   svgContent: string,
@@ -9,28 +24,14 @@ export function transform(
   const {
     typescript = false,
     optimize: shouldOptimize = true,
-    svgoConfig = {},
+    svgoConfig = DEFAULT_SVGO_CONFIG,
   } = options;
 
   let processedSvg = svgContent;
 
   // Optimize SVG if requested
   if (shouldOptimize) {
-    const result = optimize(svgContent, {
-      multipass: true,
-      plugins: [
-        {
-          name: 'preset-default',
-          params: {
-            overrides: {
-              removeViewBox: false,
-            },
-          },
-        },
-        'removeXMLNS',
-      ],
-      ...svgoConfig,
-    });
+    const result = optimize(svgContent, svgoConfig);
     processedSvg = result.data;
   }
 
