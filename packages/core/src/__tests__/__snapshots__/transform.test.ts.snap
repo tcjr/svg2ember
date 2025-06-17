@@ -14,7 +14,7 @@ exports[`transform > should handle SVG optimization 1`] = `
 
 exports[`transform > should handle SVG with no optimization 1`] = `
 "<template>
-  <svg width="24" height="24" viewBox="0 0 24 24" ...attributes><path d="M12 2L2 7v10c0 5.55 3.84 10 9 11 1.08.2 2.92.2 4 0 5.16-1 9-5.45 9-11V7l-10-5z" />{{yield}}</svg>
+  <svg width="24" height="24" viewBox="0 0 24 24" id="SVG_ID_1" ...attributes><path d="M12 2L2 7v10c0 5.55 3.84 10 9 11 1.08.2 2.92.2 4 0 5.16-1 9-5.45 9-11V7l-10-5z" />{{yield}}</svg>
 </template>"
 `;
 
