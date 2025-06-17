@@ -73,9 +73,6 @@ function generateEmberComponent(
   // Convert AST back to SVG string with attributes spread
   const svgString = astToSvgString(svgElement);
 
-  // Add ...attributes spread to the root svg element
-  const svgWithAttributes = addAttributesSpread(svgString);
-
   if (typescript) {
     return `import type { TOC } from '@ember/component/template-only';
 
@@ -84,13 +81,13 @@ interface Signature {
 }
 
 const IconComponent: TOC<Signature> = <template>
-  ${svgWithAttributes}
+  ${svgString}
 </template>;
 
 export default IconComponent;`;
   } else {
     return `<template>
-  ${svgWithAttributes}
+  ${svgString}
 </template>`;
   }
 }
@@ -107,23 +104,24 @@ function astToSvgString(element: SvgNode): string {
     .map(([key, value]) => `${key}="${value}"`)
     .join(' ');
 
-  const attrsString = attrs ? ` ${attrs}` : '';
+  let attrsString = attrs ? ` ${attrs}` : '';
 
-  if (children.length === 0) {
+  // Never self-close <svg> because we add {{yield}}
+  if (children.length === 0 && tagName !== 'svg') {
     return `<${tagName}${attrsString} />`;
   }
 
-  const childrenString = children
+  let childrenString = children
     .map((child: SvgNode) => astToSvgString(child))
     .join('');
 
-  // Insert {{yield}} before closing `</svg>`
-  const yieldString = '{{yield}}';
+  if (tagName === 'svg') {
+    // Add `...attributes` to the opening `<svg>` tag
+    attrsString = `${attrsString} ...attributes`;
 
-  return `<${tagName}${attrsString}>${childrenString}${yieldString}</${tagName}>`;
-}
+    // Add `{{yield}}` just before the closing `</svg>`
+    childrenString = `${childrenString}{{yield}}`;
+  }
 
-function addAttributesSpread(svgString: string): string {
-  // Add ...attributes to the opening svg tag
-  return svgString.replace(/^<svg([^>]*)>/, '<svg$1 ...attributes>');
+  return `<${tagName}${attrsString}>${childrenString}</${tagName}>`;
 }

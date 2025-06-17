@@ -20,7 +20,7 @@ exports[`transform > should handle SVG with no optimization 1`] = `
 
 exports[`transform > should handle complex SVG with nested elements 1`] = `
 "<template>
-  <svg width="88px" height="88px" viewBox="0 0 88 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ...attributes><title>Dismiss{{yield}}</title><desc>Created with Sketch.{{yield}}</desc><defs /><g id="Blocks" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square"><g id="Dismiss" stroke="#063855" stroke-width="2"><path d="M51,37 L37,51" id="Shape" /><path d="M51,51 L37,37" id="Shape" />{{yield}}</g>{{yield}}</g>{{yield}}</svg>
+  <svg width="88px" height="88px" viewBox="0 0 88 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ...attributes><title>Dismiss</title><desc>Created with Sketch.</desc><defs /><g id="Blocks" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square"><g id="Dismiss" stroke="#063855" stroke-width="2"><path d="M51,37 L37,51" id="Shape" /><path d="M51,51 L37,37" id="Shape" /></g></g>{{yield}}</svg>
 </template>"
 `;
 
