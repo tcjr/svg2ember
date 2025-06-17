@@ -2,13 +2,15 @@
   "name": "svg2ember",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": ">=20"
+  },
   "main": "index.js",
   "scripts": {
     "build": "pnpm -r run build",
     "dev": "pnpm -r --parallel run build --watch",
-    "format": "prettier --write .",
-    "lint": "eslint . && prettier --check .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "pnpm --filter website lint && eslint ./packages/ && prettier --check ./packages/",
+    "test": "pnpm -r run test"
   },
   "keywords": [],
   "author": "",

@@ -2,7 +2,13 @@ export default {
   plugins: [],
   overrides: [
     {
-      files: '*.{js,gjs,ts,gts,mjs,mts,cjs,cts}',
+      files: '*.{js,ts,mjs,mts,cjs,cts}',
+      options: {
+        singleQuote: true,
+      },
+    },
+    {
+      files: '*.{gjs,gts}',
       options: {
         singleQuote: true,
         templateSingleQuote: false,
