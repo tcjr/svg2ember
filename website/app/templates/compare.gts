@@ -27,8 +27,14 @@ interface CompareSignature {
     <Ghost class="h-20 w-20 fill-cyan-300 inline-block" />
     <Ghost class="h-20 w-20 fill-red-500 inline-block" />
     <Ghost class="h-20 w-20 fill-orange-400 inline-block" />
-    <Ghost class="h-20 w-20 fill-orange-400 inline-block">
+    <Ghost class="h-20 w-20 inline-block">
       {{! any valid child of SVG can go here }}
+      <animate
+        attributeName="fill"
+        values="blue;white;blue"
+        dur="800ms"
+        repeatCount="indefinite"
+      />
     </Ghost>
 
     <hr />
