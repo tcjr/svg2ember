@@ -1,7 +1,7 @@
 {
   "name": "svg2ember",
   "version": "0.1.0",
-  "description": "Combined core, CLI, and Vite functionalities for svg2ember.",
+  "description": "Transform SVGs into Ember components.",
   "type": "module",
   "engines": {
     "node": ">=20"
@@ -22,9 +22,6 @@
       "import": "./dist/vite/index.js"
     }
   },
-  "bin": {
-    "svg2ember": "dist/cli/cli.js"
-  },
   "files": [
     "dist"
   ],
@@ -41,7 +38,7 @@
     "glob": "^11.0.0"
   },
   "peerDependencies": {
-    "vite": "^4.0.0 || ^5.0.0"
+    "vite": "^5.0.0 || ^6.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.0",
@@ -60,6 +57,7 @@
     "vite",
     "plugin"
   ],
-  "author": "",
+  "author": "Tom Carter (https:/tcjr.org/)",
+  "repository": "https://github.com/tcjr/svg2ember.git",
   "license": "MIT"
 }

@@ -4,37 +4,41 @@ Convert SVG files to Ember template-only components with CLI and Vite plugin sup
 
 ## Overview
 
-svg2ember is a TypeScript-based tool that transforms SVG files into Ember template-only components, similar to SVGR for React but designed specifically for Ember applications. It provides both command-line tools and Vite plugin integration for seamless development workflows.
+svg2ember is a TypeScript-based tool that transforms SVG files into Ember template-only components. It provides both command-line tools and Vite plugin integration for seamless development workflows.
 
 ## Features
 
-- 🎯 **AST-based parsing** - Uses svg-parser for proper DOM structure handling
 - ⚡ **SVG optimization** - Integrates svgo for optimized output  
-- 🔧 **TypeScript support** - Full TypeScript support with `.gts` components
-- 🎨 **Attribute spreading** - Generated components have `...attributes` on root `<svg>`
+- 💙 **TypeScript support** - Full TypeScript support with `.gts` components
+- 🔧 **Attribute spreading** - Generated components have `...attributes` on root `<svg>`
+- 🎨 **Composability** - Generated components `{{yield}}` in `<svg>` body to allow children
 
 ## Installation
 
-TODO
+```bash
+pnpm add --save-dev svg2ember
+```
 
 ## Usage
 
 ### Command Line Interface
 
+> Exact CLI script binary is WIP. It's here: `./dist/cli/cli.js`
+
 Transform a single SVG file:
 ```bash
-pnpx svg2ember/cli input/butterfly.svg output/butterfly.gjs
+node ./dist/cli/cli.js input/butterfly.svg output/butterfly.gjs
 ```
 
 With TypeScript support:
 ```bash
-pnpx svg2ember/cli --typescript input/butterfly.svg output/butterfly.gts
+node ./dist/cli/cli.js --typescript input/butterfly.svg output/butterfly.gts
 ```
 
 Transform all SVG files in a directory:
 ```bash
-pnpx svg2ember/cli --out-dir components/icons icons/
-pnpx svg2ember/cli --out-dir components/icons --ignore-existing icons/
+node ./dist/cli/cli.js --out-dir components/icons icons/
+node ./dist/cli/cli.js --out-dir components/icons --ignore-existing icons/
 ```
 
 ### Vite Plugin
@@ -48,6 +52,7 @@ import svg2ember from 'svg2ember/vite';
 export default {
   plugins: [
     svg2ember()
+    // other Ember plugins...
   ]
 };
 ```
@@ -55,7 +60,7 @@ export default {
 Use in Ember components:
 ```gts
 import Butterfly from '../icons/butterfly.svg?component';
-import butterflyUrl from '../icons/butterfly.svg';
+import butterflyUrl from '../icons/butterfly.svg'; // standard imports unaffected
 
 <template>
   <h1>A butterfly (component):</h1>
@@ -90,6 +95,10 @@ pnpm lint
 ## Project Status
 
 Currently in development. See [PROJECT_PLAN.md](./PROJECT_PLAN.md) for detailed roadmap and implementation status.
+
+## Thanks
+
+Inspired by the great [react-svgr](https://react-svgr.com/) tool for creating React components from SVGs.
 
 ## License
 

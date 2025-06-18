@@ -1,6 +1,5 @@
 {
-  "name": "svg2ember-monorepo",
-  "version": "1.0.0",
+  "private": true,
   "description": "",
   "engines": {
     "node": ">=20"

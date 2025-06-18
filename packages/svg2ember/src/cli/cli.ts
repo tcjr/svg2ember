@@ -9,7 +9,7 @@ import process from 'node:process';
 const program = new Command();
 
 program
-  .name('svg2ember-cli')
+  .name('svg2ember')
   .description('Convert SVG files to Ember template-only components')
   .version('0.1.0');
 
@@ -113,16 +113,16 @@ program.addHelpText(
   `
 Examples:
   Single file:
-    $ svg2ember-cli input.svg                    # Creates input.gjs
-    $ svg2ember-cli input.svg output.gjs         # Creates output.gjs  
-    $ svg2ember-cli --typescript input.svg       # Creates input.gts
-    $ svg2ember-cli -t input.svg output.gts      # Creates output.gts
+    $ svg2ember input.svg                    # Creates input.gjs
+    $ svg2ember input.svg output.gjs         # Creates output.gjs  
+    $ svg2ember --typescript input.svg       # Creates input.gts
+    $ svg2ember -t input.svg output.gts      # Creates output.gts
   
   Directory processing:
-    $ svg2ember-cli icons/                       # Process all SVGs in icons/
-    $ svg2ember-cli --out-dir components icons/  # Output to components/
-    $ svg2ember-cli -o components -t icons/      # TypeScript output
-    $ svg2ember-cli -i -o components icons/      # Skip existing files
+    $ svg2ember icons/                       # Process all SVGs in icons/
+    $ svg2ember --out-dir components icons/  # Output to components/
+    $ svg2ember -o components -t icons/      # TypeScript output
+    $ svg2ember -i -o components icons/      # Skip existing files
 `,
 );
 
