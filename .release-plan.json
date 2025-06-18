@@ -2,14 +2,10 @@
   "solution": {
     "svg2ember": {
       "impact": "patch",
-      "oldVersion": "0.1.0",
-      "newVersion": "0.1.1",
+      "oldVersion": "0.1.1",
+      "newVersion": "0.1.2",
       "tagName": "latest",
       "constraints": [
-        {
-          "impact": "patch",
-          "reason": "Appears in changelog section :memo: Documentation"
-        },
         {
           "impact": "patch",
           "reason": "Appears in changelog section :house: Internal"
@@ -18,5 +14,5 @@
       "pkgJSONPath": "./packages/svg2ember/package.json"
     }
   },
-  "description": "## Release (2025-06-18)\n\n* svg2ember 0.1.1 (patch)\n\n#### :memo: Documentation\n* `svg2ember`\n  * [#4](https://github.com/tcjr/svg2ember/pull/4) Prep for release ([@tcjr](https://github.com/tcjr))\n\n#### :house: Internal\n* Other\n  * [#5](https://github.com/tcjr/svg2ember/pull/5) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))\n* `svg2ember`\n  * [#4](https://github.com/tcjr/svg2ember/pull/4) Prep for release ([@tcjr](https://github.com/tcjr))\n\n#### Committers: 2\n- Tom Carter ([@tcjr](https://github.com/tcjr))\n- [@github-actions[bot]](https://github.com/apps/github-actions)\n"
+  "description": "## Release (2025-06-18)\n\n* svg2ember 0.1.2 (patch)\n\n#### :house: Internal\n* `svg2ember`\n  * [#7](https://github.com/tcjr/svg2ember/pull/7) Fixed typo in author ([@tcjr](https://github.com/tcjr))\n\n#### Committers: 1\n- Tom Carter ([@tcjr](https://github.com/tcjr))\n"
 }

@@ -2,6 +2,17 @@
 
 ## Release (2025-06-18)
 
+* svg2ember 0.1.2 (patch)
+
+#### :house: Internal
+* `svg2ember`
+  * [#7](https://github.com/tcjr/svg2ember/pull/7) Fixed typo in author ([@tcjr](https://github.com/tcjr))
+
+#### Committers: 1
+- Tom Carter ([@tcjr](https://github.com/tcjr))
+
+## Release (2025-06-18)
+
 * svg2ember 0.1.1 (patch)
 
 #### :memo: Documentation
