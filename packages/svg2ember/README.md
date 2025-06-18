@@ -89,6 +89,24 @@ import butterflyUrl from '../icons/butterfly.svg'; // standard imports unaffecte
 
 The `class` and `data-my-icon` attributes are passed through to the root `<svg>` element via `...attributes`.
 
+The component also works using block syntax and allows arbitrary SVG elements as children as long as they are valid children of the `<svg>` element. The `{{yield}}` is at the bottom, so the children will be placed below any other content in the SVG. (Keep in mind the coordinate space is determined by the `viewBox`.)
+
+```gts
+import Butterfly from '../icons/butterfly.svg?component';
+
+<template>
+  <Butterfly class='h-6 w-6'>
+    {{! fade the icon in and out using SVG animate }}
+    <animate
+      attributeName="opacity"
+      values="0;1;0"
+      dur="500ms"
+      repeatCount="indefinite"
+    />
+  </Butterfly>
+</template>
+```
+
 ## Contributing
 
 Issues and PRs always welcome.
