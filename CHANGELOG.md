@@ -2,6 +2,17 @@
 
 ## Release (2025-06-18)
 
+* svg2ember 0.2.1 (patch)
+
+#### :bug: Bug Fix
+* `svg2ember`
+  * [#12](https://github.com/tcjr/svg2ember/pull/12) Build it first ([@tcjr](https://github.com/tcjr))
+
+#### Committers: 1
+- Tom Carter ([@tcjr](https://github.com/tcjr))
+
+## Release (2025-06-18)
+
 * svg2ember 0.2.0 (minor)
 
 #### :rocket: Enhancement
