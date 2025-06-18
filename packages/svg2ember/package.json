@@ -32,7 +32,8 @@
     "build": "tsc",
     "dev": "tsc --watch",
     "test": "vitest run",
-    "test:watch": "vitest watch"
+    "test:watch": "vitest watch",
+    "prepack": "pnpm build"
   },
   "dependencies": {
     "svg-parser": "^2.0.4",
