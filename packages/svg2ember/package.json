@@ -25,6 +25,9 @@
   "files": [
     "dist"
   ],
+  "bin": {
+    "svg2ember": "./dist/cli/cli.js"
+  },
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
