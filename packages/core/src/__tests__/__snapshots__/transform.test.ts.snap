@@ -2,37 +2,37 @@
 
 exports[`transform > should add attributes spread to svg element 1`] = `
 "<template>
-  <svg width="24" height="24" viewBox="0 0 24 24" ...attributes><path d="M12 2 2 7v10c0 5.55 3.84 10 9 11 1.08.2 2.92.2 4 0 5.16-1 9-5.45 9-11V7L14 2z" /></svg>
+  <svg width="24" height="24" viewBox="0 0 24 24" ...attributes><path d="M12 2 2 7v10c0 5.55 3.84 10 9 11 1.08.2 2.92.2 4 0 5.16-1 9-5.45 9-11V7L14 2z" />{{yield}}</svg>
 </template>"
 `;
 
 exports[`transform > should handle SVG optimization 1`] = `
 "<template>
-  <svg width="24" height="24" viewBox="0 0 24 24" ...attributes><path d="M12 2 2 7v10c0 5.55 3.84 10 9 11 1.08.2 2.92.2 4 0 5.16-1 9-5.45 9-11V7L14 2z" /></svg>
+  <svg width="24" height="24" viewBox="0 0 24 24" ...attributes><path d="M12 2 2 7v10c0 5.55 3.84 10 9 11 1.08.2 2.92.2 4 0 5.16-1 9-5.45 9-11V7L14 2z" />{{yield}}</svg>
 </template>"
 `;
 
 exports[`transform > should handle SVG with no optimization 1`] = `
 "<template>
-  <svg width="24" height="24" viewBox="0 0 24 24" ...attributes><path d="M12 2L2 7v10c0 5.55 3.84 10 9 11 1.08.2 2.92.2 4 0 5.16-1 9-5.45 9-11V7l-10-5z" /></svg>
+  <svg width="24" height="24" viewBox="0 0 24 24" id="SVG_ID_1" ...attributes><path d="M12 2L2 7v10c0 5.55 3.84 10 9 11 1.08.2 2.92.2 4 0 5.16-1 9-5.45 9-11V7l-10-5z" />{{yield}}</svg>
 </template>"
 `;
 
 exports[`transform > should handle complex SVG with nested elements 1`] = `
 "<template>
-  <svg width="88px" height="88px" viewBox="0 0 88 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ...attributes><title>Dismiss</title><desc>Created with Sketch.</desc><defs /><g id="Blocks" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square"><g id="Dismiss" stroke="#063855" stroke-width="2"><path d="M51,37 L37,51" id="Shape" /><path d="M51,51 L37,37" id="Shape" /></g></g></svg>
+  <svg width="88px" height="88px" viewBox="0 0 88 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ...attributes><title>Dismiss</title><desc>Created with Sketch.</desc><defs /><g id="Blocks" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square"><g id="Dismiss" stroke="#063855" stroke-width="2"><path d="M51,37 L37,51" id="Shape" /><path d="M51,51 L37,37" id="Shape" /></g></g>{{yield}}</svg>
 </template>"
 `;
 
 exports[`transform > should preserve SVG attributes 1`] = `
 "<template>
-  <svg width="24" height="24" viewBox="0 0 24 24" ...attributes><path d="M12 2 2 7v10c0 5.55 3.84 10 9 11 1.08.2 2.92.2 4 0 5.16-1 9-5.45 9-11V7L14 2z" /></svg>
+  <svg width="24" height="24" viewBox="0 0 24 24" ...attributes><path d="M12 2 2 7v10c0 5.55 3.84 10 9 11 1.08.2 2.92.2 4 0 5.16-1 9-5.45 9-11V7L14 2z" />{{yield}}</svg>
 </template>"
 `;
 
 exports[`transform > should transform basic SVG to JavaScript component 1`] = `
 "<template>
-  <svg width="24" height="24" viewBox="0 0 24 24" ...attributes><path d="M12 2 2 7v10c0 5.55 3.84 10 9 11 1.08.2 2.92.2 4 0 5.16-1 9-5.45 9-11V7L14 2z" /></svg>
+  <svg width="24" height="24" viewBox="0 0 24 24" ...attributes><path d="M12 2 2 7v10c0 5.55 3.84 10 9 11 1.08.2 2.92.2 4 0 5.16-1 9-5.45 9-11V7L14 2z" />{{yield}}</svg>
 </template>"
 `;
 
@@ -44,8 +44,20 @@ interface Signature {
 }
 
 const IconComponent: TOC<Signature> = <template>
-  <svg width="24" height="24" viewBox="0 0 24 24" ...attributes><path d="M12 2 2 7v10c0 5.55 3.84 10 9 11 1.08.2 2.92.2 4 0 5.16-1 9-5.45 9-11V7L14 2z" /></svg>
+  <svg width="24" height="24" viewBox="0 0 24 24" ...attributes><path d="M12 2 2 7v10c0 5.55 3.84 10 9 11 1.08.2 2.92.2 4 0 5.16-1 9-5.45 9-11V7L14 2z" />{{yield}}</svg>
 </template>;
 
 export default IconComponent;"
+`;
+
+exports[`transform > should transform empty SVG 1`] = `
+"<template>
+  <svg ...attributes>{{yield}}</svg>
+</template>"
+`;
+
+exports[`transform > should transform empty self-closing SVG 1`] = `
+"<template>
+  <svg ...attributes>{{yield}}</svg>
+</template>"
 `;

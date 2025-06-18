@@ -37,20 +37,25 @@ describe('transform', () => {
   });
 
   it('should handle SVG optimization', () => {
-    const svgWithComments = `<!-- This is a comment -->
-<svg width="24" height="24" viewBox="0 0 24 24">
+    const svgWithId = `
+<svg width="24" height="24" viewBox="0 0 24 24" id="SVG_ID_1">
   <path d="M12 2L2 7v10c0 5.55 3.84 10 9 11 1.08.2 2.92.2 4 0 5.16-1 9-5.45 9-11V7l-10-5z"/>
 </svg>`;
 
-    const result = transform(svgWithComments, { optimize: true });
+    const result = transform(svgWithId);
 
-    // Comments should be removed by optimization
-    expect(result.code).not.toContain('<!-- This is a comment -->');
+    // Ids should be removed by optimization
+    expect(result.code).not.toContain('SVG_ID_1');
     expect(result.code).toMatchSnapshot();
   });
 
   it('should handle SVG with no optimization', () => {
-    const result = transform(basicSvg, { optimize: false });
+    const svgWithId = `
+<svg width="24" height="24" viewBox="0 0 24 24" id="SVG_ID_1">
+  <path d="M12 2L2 7v10c0 5.55 3.84 10 9 11 1.08.2 2.92.2 4 0 5.16-1 9-5.45 9-11V7l-10-5z"/>
+</svg>`;
+    const result = transform(svgWithId, { optimize: false });
+    expect(result.code).toContain('id="SVG_ID_1"');
     expect(result.code).toMatchSnapshot();
   });
 
@@ -83,5 +88,65 @@ describe('transform', () => {
 
     const result = transform(complexSvg, { optimize: false });
     expect(result.code).toMatchSnapshot();
+  });
+
+  it('should transform empty SVG', () => {
+    const result = transform('<svg></svg>');
+    expect(result.extension).toBe('.gjs');
+    expect(result.code).toMatchSnapshot();
+  });
+
+  it('should transform empty self-closing SVG', () => {
+    const result = transform('<svg />');
+    expect(result.extension).toBe('.gjs');
+    expect(result.code).toMatchSnapshot();
+  });
+});
+
+describe('transform with svgoConfig', () => {
+  it('should pass options onto svgo, with xmlns', () => {
+    const svgSource = `
+      <svg xmlns="http://www.w3.org/2000/svg">
+      </svg>
+    `;
+    const result = transform(svgSource, {
+      svgoConfig: {
+        plugins: [
+          {
+            name: 'preset-default',
+            params: {
+              overrides: {
+                removeViewBox: false,
+              },
+            },
+          },
+          //'removeXMLNS', <- commenting this means xmlns will remain
+        ],
+      },
+    });
+    expect(result.code).toContain('xmlns');
+  });
+
+  it('should pass options onto svgo, without xmlns', () => {
+    const svgSource = `
+      <svg xmlns="http://www.w3.org/2000/svg">
+      </svg>
+    `;
+    const result = transform(svgSource, {
+      svgoConfig: {
+        plugins: [
+          {
+            name: 'preset-default',
+            params: {
+              overrides: {
+                removeViewBox: false,
+              },
+            },
+          },
+          'removeXMLNS', // <- leaving this means xmlns will be removed
+        ],
+      },
+    });
+    expect(result.code).not.toContain('xmlns');
   });
 });

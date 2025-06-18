@@ -76,11 +76,32 @@ Transforms SVG content into an Ember component.
 
 ### `TransformOptions`
 
-| Option       | Type      | Default | Description                                                           |
-| ------------ | --------- | ------- | --------------------------------------------------------------------- |
-| `typescript` | `boolean` | `false` | Generate TypeScript component (`.gts`) instead of JavaScript (`.gjs`) |
-| `optimize`   | `boolean` | `true`  | Enable or disable SVGO optimization.                                  |
-| `svgoConfig` | `object`  | `{}`    | Custom SVGO configuration. Used if `optimize` is `true`.              |
+| Option       | Type      | Default   | Description                                                           |
+| ------------ | --------- | --------- | --------------------------------------------------------------------- |
+| `typescript` | `boolean` | `false`   | Generate TypeScript component (`.gts`) instead of JavaScript (`.gjs`) |
+| `optimize`   | `boolean` | `true`    | Enable or disable SVGO optimization.                                  |
+| `svgoConfig` | `object`  | See below | Custom SVGO configuration. Used if `optimize` is `true`.              |
+
+#### Default SVGO configuration
+
+```javascript
+{
+  multipass: true,
+  plugins: [
+    {
+      name: 'preset-default',
+      params: {
+        overrides: {
+          removeViewBox: false,
+        },
+      },
+    },
+    'removeXMLNS',
+  ],
+}
+```
+
+The config is passed directly to the SVGO `optimize` function. The [SVGO options](https://svgo.dev/docs/preset-default/#plugins-list) are described at the SVGO site.
 
 ## Generated Component Structure
 

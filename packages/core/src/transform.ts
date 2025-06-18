@@ -1,6 +1,21 @@
 import { parse, type SvgNode } from 'svg-parser';
-import { optimize } from 'svgo';
+import { optimize, type Config } from 'svgo';
 import type { TransformOptions, TransformResult } from './types.js';
+
+export const DEFAULT_SVGO_CONFIG: Config = {
+  multipass: true,
+  plugins: [
+    {
+      name: 'preset-default',
+      params: {
+        overrides: {
+          removeViewBox: false,
+        },
+      },
+    },
+    'removeXMLNS',
+  ],
+};
 
 export function transform(
   svgContent: string,
@@ -9,28 +24,14 @@ export function transform(
   const {
     typescript = false,
     optimize: shouldOptimize = true,
-    svgoConfig = {},
+    svgoConfig = DEFAULT_SVGO_CONFIG,
   } = options;
 
   let processedSvg = svgContent;
 
   // Optimize SVG if requested
   if (shouldOptimize) {
-    const result = optimize(svgContent, {
-      multipass: true,
-      plugins: [
-        {
-          name: 'preset-default',
-          params: {
-            overrides: {
-              removeViewBox: false,
-            },
-          },
-        },
-        'removeXMLNS',
-      ],
-      ...svgoConfig,
-    });
+    const result = optimize(svgContent, svgoConfig);
     processedSvg = result.data;
   }
 
@@ -72,9 +73,6 @@ function generateEmberComponent(
   // Convert AST back to SVG string with attributes spread
   const svgString = astToSvgString(svgElement);
 
-  // Add ...attributes spread to the root svg element
-  const svgWithAttributes = addAttributesSpread(svgString);
-
   if (typescript) {
     return `import type { TOC } from '@ember/component/template-only';
 
@@ -83,13 +81,13 @@ interface Signature {
 }
 
 const IconComponent: TOC<Signature> = <template>
-  ${svgWithAttributes}
+  ${svgString}
 </template>;
 
 export default IconComponent;`;
   } else {
     return `<template>
-  ${svgWithAttributes}
+  ${svgString}
 </template>`;
   }
 }
@@ -106,20 +104,24 @@ function astToSvgString(element: SvgNode): string {
     .map(([key, value]) => `${key}="${value}"`)
     .join(' ');
 
-  const attrsString = attrs ? ` ${attrs}` : '';
+  let attrsString = attrs ? ` ${attrs}` : '';
 
-  if (children.length === 0) {
+  // Never self-close <svg> because we add {{yield}}
+  if (children.length === 0 && tagName !== 'svg') {
     return `<${tagName}${attrsString} />`;
   }
 
-  const childrenString = children
+  let childrenString = children
     .map((child: SvgNode) => astToSvgString(child))
     .join('');
 
-  return `<${tagName}${attrsString}>${childrenString}</${tagName}>`;
-}
+  if (tagName === 'svg') {
+    // Add `...attributes` to the opening `<svg>` tag
+    attrsString = `${attrsString} ...attributes`;
 
-function addAttributesSpread(svgString: string): string {
-  // Add ...attributes to the opening svg tag
-  return svgString.replace(/^<svg([^>]*)>/, '<svg$1 ...attributes>');
+    // Add `{{yield}}` just before the closing `</svg>`
+    childrenString = `${childrenString}{{yield}}`;
+  }
+
+  return `<${tagName}${attrsString}>${childrenString}</${tagName}>`;
 }

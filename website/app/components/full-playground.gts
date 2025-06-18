@@ -57,9 +57,23 @@ export default class FullPlayground extends Component<FullPlaygroundSignature> {
       const result = transform(this.currentInputCode, {
         typescript: this.options.typescript,
         optimize: this.options.optimize,
+        svgoConfig: {
+          multipass: false,
+          plugins: [
+            {
+              name: 'preset-default',
+              params: {
+                overrides: {
+                  removeViewBox: false,
+                },
+              },
+            },
+            'removeXMLNS',
+          ],
+        },
       });
+
       this.currentOutputCode = result.code;
-      // return result.code;
     } catch (err: unknown) {
       let errorMessage = 'An unknown error occurred during transformation.';
       if (err instanceof Error) {
@@ -117,16 +131,6 @@ export default class FullPlayground extends Component<FullPlaygroundSignature> {
                   name="optimize"
                 />
                 Optimize
-              </label>
-              <label class="label">
-                <input
-                  type="checkbox"
-                  checked={{false}}
-                  class="checkbox"
-                  name="prettier"
-                  disabled
-                />
-                Prettier
               </label>
             </fieldset>
           </Form>
