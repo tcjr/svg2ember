@@ -45,7 +45,7 @@ describe('svg2ember vite plugin', () => {
     mockError = vi.fn();
     mockTransform.mockClear();
     // Default mock implementation for transform, can be overridden in specific tests if needed
-    mockTransform.mockImplementation((svgContent, _options) => ({
+    mockTransform.mockImplementation((svgContent) => ({
       code: `<TRANSFORMED>${svgContent}</TRANSFORMED>`,
       map: null,
     }));
