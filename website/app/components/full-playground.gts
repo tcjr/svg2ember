@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import type Owner from '@ember/owner';
 import { tracked } from '@glimmer/tracking';
 import Editor from 'website/components/editor.gts';
-import { transform } from '@svg2ember/core';
+import { transform, type TransformResult } from 'svg2ember';
 import { Form } from 'ember-primitives';
 import { TrackedObject } from 'tracked-built-ins';
 
@@ -54,7 +54,7 @@ export default class FullPlayground extends Component<FullPlaygroundSignature> {
 
   doTheCodeConversion = () => {
     try {
-      const result = transform(this.currentInputCode, {
+      const result: TransformResult = transform(this.currentInputCode, {
         typescript: this.options.typescript,
         optimize: this.options.optimize,
         svgoConfig: {

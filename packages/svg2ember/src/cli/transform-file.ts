@@ -1,7 +1,7 @@
 import { readFile, writeFile } from 'fs/promises';
 import { dirname, resolve, extname, basename } from 'path';
 import { mkdir } from 'fs/promises';
-import { transform } from '@svg2ember/core';
+import { transform } from '../core/index.js';
 import type { TransformFileOptions, TransformResult } from './types.js';
 
 export async function transformFile(

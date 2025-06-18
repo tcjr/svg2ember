@@ -1,5 +1,5 @@
 {
-  "name": "svg2ember",
+  "name": "svg2ember-monorepo",
   "version": "1.0.0",
   "description": "",
   "engines": {
@@ -8,13 +8,12 @@
   "main": "index.js",
   "scripts": {
     "build": "pnpm -r run build",
-    "dev": "pnpm -r --parallel run build --watch",
-    "lint": "pnpm --filter website lint && eslint ./packages/ && prettier --check ./packages/",
+    "lint": "pnpm --filter website lint && eslint ./packages/svg2ember/ && prettier --check ./packages/svg2ember/",
     "test": "pnpm -r run test"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "type": "module",
   "devDependencies": {
     "@eslint/js": "^9.28.0",

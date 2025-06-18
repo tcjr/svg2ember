@@ -8,9 +8,13 @@
     "allowJs": true,
     "paths": {
       "website/tests/*": ["./tests/*"],
-      "website/*": ["./app/*"],
-      "*": ["./types/*"]
+      "website/*": ["./app/*"]
     },
-    "types": ["ember-source/types", "@embroider/core/virtual", "vite/client"]
+    "types": [
+      "ember-source/types",
+      "@embroider/core/virtual",
+      "vite/client",
+      "./types"
+    ]
   }
 }
