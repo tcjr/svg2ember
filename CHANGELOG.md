@@ -2,6 +2,22 @@
 
 ## Release (2025-06-18)
 
+* svg2ember 0.2.0 (minor)
+
+#### :rocket: Enhancement
+* `svg2ember`
+  * [#9](https://github.com/tcjr/svg2ember/pull/9) Add bin ([@tcjr](https://github.com/tcjr))
+
+#### :memo: Documentation
+* `svg2ember`
+  * [#11](https://github.com/tcjr/svg2ember/pull/11) Added example ([@tcjr](https://github.com/tcjr))
+  * [#9](https://github.com/tcjr/svg2ember/pull/9) Add bin ([@tcjr](https://github.com/tcjr))
+
+#### Committers: 1
+- Tom Carter ([@tcjr](https://github.com/tcjr))
+
+## Release (2025-06-18)
+
 * svg2ember 0.1.2 (patch)
 
 #### :house: Internal
