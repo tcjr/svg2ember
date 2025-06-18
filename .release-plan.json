@@ -1,18 +1,8 @@
 {
   "solution": {
     "svg2ember": {
-      "impact": "patch",
-      "oldVersion": "0.2.0",
-      "newVersion": "0.2.1",
-      "tagName": "latest",
-      "constraints": [
-        {
-          "impact": "patch",
-          "reason": "Appears in changelog section :bug: Bug Fix"
-        }
-      ],
-      "pkgJSONPath": "./packages/svg2ember/package.json"
+      "oldVersion": "0.2.1"
     }
   },
-  "description": "## Release (2025-06-18)\n\n* svg2ember 0.2.1 (patch)\n\n#### :bug: Bug Fix\n* `svg2ember`\n  * [#12](https://github.com/tcjr/svg2ember/pull/12) Build it first ([@tcjr](https://github.com/tcjr))\n\n#### Committers: 1\n- Tom Carter ([@tcjr](https://github.com/tcjr))\n"
+  "description": "## Release (2025-06-18)\n\n\n\n#### :memo: Documentation\n* [#14](https://github.com/tcjr/svg2ember/pull/14) Adding CI ([@tcjr](https://github.com/tcjr))\n\n#### :house: Internal\n* [#14](https://github.com/tcjr/svg2ember/pull/14) Adding CI ([@tcjr](https://github.com/tcjr))\n\n#### Committers: 1\n- Tom Carter ([@tcjr](https://github.com/tcjr))\n"
 }
