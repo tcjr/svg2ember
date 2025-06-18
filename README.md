@@ -93,4 +93,4 @@ Currently in development. See [PROJECT_PLAN.md](./PROJECT_PLAN.md) for detailed 
 
 ## License
 
-ISC
+MIT
