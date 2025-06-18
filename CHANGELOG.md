@@ -1,1 +1,19 @@
 # Changelog
+
+## Release (2025-06-18)
+
+* svg2ember 0.1.1 (patch)
+
+#### :memo: Documentation
+* `svg2ember`
+  * [#4](https://github.com/tcjr/svg2ember/pull/4) Prep for release ([@tcjr](https://github.com/tcjr))
+
+#### :house: Internal
+* Other
+  * [#5](https://github.com/tcjr/svg2ember/pull/5) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))
+* `svg2ember`
+  * [#4](https://github.com/tcjr/svg2ember/pull/4) Prep for release ([@tcjr](https://github.com/tcjr))
+
+#### Committers: 2
+- Tom Carter ([@tcjr](https://github.com/tcjr))
+- [@github-actions[bot]](https://github.com/apps/github-actions)
