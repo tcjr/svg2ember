@@ -57,7 +57,7 @@
     "vite",
     "plugin"
   ],
-  "author": "Tom Carter (https:/tcjr.org/)",
+  "author": "Tom Carter (https://tcjr.org/)",
   "repository": "https://github.com/tcjr/svg2ember.git",
   "license": "MIT"
 }
