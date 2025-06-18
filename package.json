@@ -1,26 +1,30 @@
 {
-  "name": "svg2ember-monorepo",
-  "version": "1.0.0",
+  "private": true,
   "description": "",
-  "engines": {
-    "node": ">=20"
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tcjr/svg2ember.git"
   },
+  "license": "MIT",
+  "author": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "build": "pnpm -r run build",
     "lint": "pnpm --filter website lint && eslint ./packages/svg2ember/ && prettier --check ./packages/svg2ember/",
     "test": "pnpm -r run test"
   },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "type": "module",
   "devDependencies": {
     "@eslint/js": "^9.28.0",
     "eslint": "^9.28.0",
     "globals": "^16.2.0",
     "prettier": "^3.5.3",
+    "release-plan": "^0.16.0",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.34.0"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }
