@@ -11,21 +11,11 @@ svg2ember is a TypeScript-based tool that transforms SVG files into Ember templa
 - 🎯 **AST-based parsing** - Uses svg-parser for proper DOM structure handling
 - ⚡ **SVG optimization** - Integrates svgo for optimized output  
 - 🔧 **TypeScript support** - Full TypeScript support with `.gts` components
-- 📦 **Monorepo architecture** - Separate packages for core, CLI, and Vite plugin
-- 🎨 **Attribute spreading** - Generated components accept `...attributes` on root `<svg>`
+- 🎨 **Attribute spreading** - Generated components have `...attributes` on root `<svg>`
 
 ## Installation
 
-> **Note**: Packages will be published after initial implementation is complete.
-
-```bash
-# CLI usage (future)
-pnpx @svg2ember/cli input.svg output.gjs
-
-# Development (current)
-pnpm install
-pnpm build
-```
+TODO
 
 ## Usage
 
@@ -33,18 +23,18 @@ pnpm build
 
 Transform a single SVG file:
 ```bash
-pnpx @svg2ember/cli input/butterfly.svg output/butterfly.gjs
+pnpx svg2ember/cli input/butterfly.svg output/butterfly.gjs
 ```
 
 With TypeScript support:
 ```bash
-pnpx @svg2ember/cli --typescript input/butterfly.svg output/butterfly.gts
+pnpx svg2ember/cli --typescript input/butterfly.svg output/butterfly.gts
 ```
 
 Transform all SVG files in a directory:
 ```bash
-pnpx @svg2ember/cli --out-dir components/icons icons/
-pnpx @svg2ember/cli --out-dir components/icons --ignore-existing icons/
+pnpx svg2ember/cli --out-dir components/icons icons/
+pnpx svg2ember/cli --out-dir components/icons --ignore-existing icons/
 ```
 
 ### Vite Plugin
@@ -53,7 +43,7 @@ Configure the Vite plugin to enable SVG component imports:
 
 ```js
 // vite.config.js
-import { svg2ember } from '@svg2ember/vite';
+import svg2ember from 'svg2ember/vite';
 
 export default {
   plugins: [
@@ -92,24 +82,10 @@ pnpm install
 pnpm build
 ```
 
-### Development mode with watch
-```bash
-pnpm dev
-```
-
-### Lint and format
+### Lint
 ```bash
 pnpm lint
-pnpm format
 ```
-
-## Architecture
-
-The project consists of three packages:
-
-- **`packages/core/`** - Core SVG transformation logic using svg-parser and svgo
-- **`packages/cli/`** - Command-line interface for batch and single file processing  
-- **`packages/vite/`** - Vite plugin for development workflow integration
 
 ## Project Status
 
