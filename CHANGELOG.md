@@ -2,6 +2,19 @@
 
 ## Release (2025-06-18)
 
+
+
+#### :memo: Documentation
+* [#14](https://github.com/tcjr/svg2ember/pull/14) Adding CI ([@tcjr](https://github.com/tcjr))
+
+#### :house: Internal
+* [#14](https://github.com/tcjr/svg2ember/pull/14) Adding CI ([@tcjr](https://github.com/tcjr))
+
+#### Committers: 1
+- Tom Carter ([@tcjr](https://github.com/tcjr))
+
+## Release (2025-06-18)
+
 * svg2ember 0.2.1 (patch)
 
 #### :bug: Bug Fix
