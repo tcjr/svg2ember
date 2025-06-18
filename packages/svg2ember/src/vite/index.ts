@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 import type { Plugin } from 'vite';
-import { transform } from '@svg2ember/core';
+import { transform } from '../core/index.js';
 import type { PluginOptions } from './types.js';
 
 // A unique suffix to identify modules transformed by this plugin in the `load` hook.

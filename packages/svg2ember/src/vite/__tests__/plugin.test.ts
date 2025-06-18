@@ -2,13 +2,13 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import type { Plugin } from 'vite';
 import svg2ember from '../index.js';
 import fs from 'fs/promises';
-import * as core from '@svg2ember/core';
+import * as core from '../../core/index.js';
 
 // Mock fs module
 vi.mock('fs/promises');
 
 // Mock @svg2ember/core module
-vi.mock('@svg2ember/core', async (importOriginal) => {
+vi.mock('../../core/index.js', async (importOriginal) => {
   const actualCore = await importOriginal<typeof core>();
   return {
     ...actualCore,
@@ -18,6 +18,7 @@ vi.mock('@svg2ember/core', async (importOriginal) => {
     })),
   };
 });
+
 const mockFs = vi.mocked(fs);
 
 // Test SVG content
@@ -26,6 +27,7 @@ const testSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
   <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1"/>
 </svg>`;
 
+// Correctly type mockTransform based on the actual structure of the mocked core
 const mockTransform = vi.mocked(core.transform);
 
 describe('svg2ember vite plugin', () => {

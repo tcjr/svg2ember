@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import type Owner from '@ember/owner';
 import { tracked } from '@glimmer/tracking';
 import Editor from 'website/components/editor.gts';
-import { transform } from '@svg2ember/core';
+import { transform } from 'svg2ember';
 import { Form } from 'ember-primitives';
 import { TrackedObject } from 'tracked-built-ins';
 
