@@ -23,22 +23,29 @@ pnpm add --save-dev svg2ember
 
 ### Command Line Interface
 
-> Exact CLI script binary is WIP. It's here: `./dist/cli/cli.js`
+You can run `svg2ember` directly using `pnpx` without installing it:
 
-Transform a single SVG file:
 ```bash
-node ./dist/cli/cli.js input/butterfly.svg output/butterfly.gjs
+pnpx svg2ember input.svg output.gjs
+pnpx svg2ember --typescript input.svg output.gts
+pnpx svg2ember --out-dir components/icons icons/
 ```
 
-With TypeScript support:
+Alternatively, you can install it globally:
+
 ```bash
-node ./dist/cli/cli.js --typescript input/butterfly.svg output/butterfly.gts
+pnpm add --global svg2ember
 ```
 
-Transform all SVG files in a directory:
+And then run it:
+
 ```bash
-node ./dist/cli/cli.js --out-dir components/icons icons/
-node ./dist/cli/cli.js --out-dir components/icons --ignore-existing icons/
+svg2ember input.svg output.gjs
+svg2ember --typescript input.svg output.gts
+svg2ember --out-dir components/icons icons/
+# To process all SVGs in the 'icons/' directory and output them to 'components/icons',
+# skipping any files that already exist in the output directory:
+svg2ember --out-dir components/icons --ignore-existing icons/
 ```
 
 ### Vite Plugin
