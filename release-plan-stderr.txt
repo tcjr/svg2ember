@@ -1,0 +1,7 @@
+# Unlabeled Changes
+
+* `svg2ember`
+  * [#4](https://github.com/tcjr/svg2ember/pull/4) Prep for release ([@tcjr](https://github.com/tcjr))
+
+
+*Cannot plan release until the above changes are labeled*.
