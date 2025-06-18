@@ -13,7 +13,7 @@ svg2ember is a TypeScript-based tool that transforms SVG files into Ember templa
 - 🔧 **Attribute spreading** - Generated components have `...attributes` on root `<svg>`
 - 🎨 **Composability** - Generated components `{{yield}}` in `<svg>` body to allow children
 
-See [packages/svg2ember/README.md] for installation, usage, and examples.
+## See [svg2ember package README](packages/svg2ember/README.md) for installation, usage, and examples.
 
 ## Development
 
