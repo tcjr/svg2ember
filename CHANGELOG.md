@@ -1,5 +1,25 @@
 # Changelog
 
+## Release (2025-07-01)
+
+* svg2ember 1.0.0 (major)
+
+#### :boom: Breaking Change
+* `svg2ember`
+  * [#16](https://github.com/tcjr/svg2ember/pull/16) Upgrade to vite 7 ([@tcjr](https://github.com/tcjr))
+
+#### :memo: Documentation
+* [#14](https://github.com/tcjr/svg2ember/pull/14) Adding CI ([@tcjr](https://github.com/tcjr))
+
+#### :house: Internal
+* `svg2ember`
+  * [#16](https://github.com/tcjr/svg2ember/pull/16) Upgrade to vite 7 ([@tcjr](https://github.com/tcjr))
+* Other
+  * [#14](https://github.com/tcjr/svg2ember/pull/14) Adding CI ([@tcjr](https://github.com/tcjr))
+
+#### Committers: 1
+- Tom Carter ([@tcjr](https://github.com/tcjr))
+
 ## Release (2025-06-18)
 
 * svg2ember 0.2.1 (patch)
