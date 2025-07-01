@@ -1,6 +1,6 @@
 {
   "name": "svg2ember",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "Transform SVGs into Ember components.",
   "type": "module",
   "engines": {
