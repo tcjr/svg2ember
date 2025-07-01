@@ -55,7 +55,7 @@
     "@glint/environment-ember-template-imports": "^1.5.2",
     "@glint/template": "^1.5.2",
     "@rollup/plugin-babel": "^6.0.4",
-    "@tailwindcss/vite": "^4.1.8",
+    "@tailwindcss/vite": "^4.1.11",
     "@types/prismjs": "^1.26.5",
     "@types/qunit": "^2.19.12",
     "@types/rsvp": "^4.0.9",
@@ -93,16 +93,16 @@
     "stylelint": "^16.19.1",
     "stylelint-config-standard": "^38.0.0",
     "svg2ember": "workspace:*",
-    "tailwindcss": "^4.1.8",
+    "tailwindcss": "^4.1.11",
     "testem": "^3.16.0",
     "tracked-built-ins": "^4.0.0",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.32.1",
-    "vite": "^6.3.5",
-    "vite-plugin-inspect": "^11.1.0"
+    "vite": "^7.0.0",
+    "vite-plugin-inspect": "^11.3.0"
   },
   "engines": {
-    "node": ">= 18"
+    "node": ">= 22"
   },
   "ember": {
     "edition": "octane"
