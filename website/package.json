@@ -108,6 +108,7 @@
     "edition": "octane"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.2",
     "@phosphor-icons/core": "^2.1.1"
   }
 }

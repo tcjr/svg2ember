@@ -5,6 +5,10 @@ import IllinoisUrl from 'website/svgs/THE_STATE_OF_ILLINOIS.svg';
 import Illinois from 'website/svgs/THE_STATE_OF_ILLINOIS.svg?component';
 import ghostDuotone from '@phosphor-icons/core/duotone/ghost-duotone.svg';
 import Ghost from '@phosphor-icons/core/fill/ghost-fill.svg?component';
+import Bell from '@fortawesome/fontawesome-free/svgs/regular/bell.svg?component';
+import BellSolid from '@fortawesome/fontawesome-free/svgs/solid/bell.svg?component';
+import Ember from '@fortawesome/fontawesome-free/svgs/brands/ember.svg?component';
+import PartyPopper from 'website/svgs/party-popper.svg?component';
 
 interface CompareSignature {
   Args: {
@@ -38,6 +42,17 @@ interface CompareSignature {
     </Ghost>
 
     <hr />
+
+    <Bell class="h-20 w-20 inline-block fill-sky-800" />
+    <BellSolid class="h-20 w-20 inline-block fill-sky-800" />
+
+    <hr />
+
+    <Ember class="h-36 inline-block fill-[#cf2d20]" />
+
+    <hr />
+
+    <PartyPopper class="w-12 h-12" />
 
   </div>
 </template> satisfies TOC<CompareSignature>;
