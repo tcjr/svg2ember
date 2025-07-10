@@ -74,7 +74,7 @@ export default {
 
 Then use in Ember components:
 
-```gts
+```gjs
 import Butterfly from '../icons/butterfly.svg?component';
 import butterflyUrl from '../icons/butterfly.svg'; // standard imports unaffected
 
@@ -91,7 +91,7 @@ The `class` and `data-my-icon` attributes are passed through to the root `<svg>`
 
 The component also works using block syntax and allows arbitrary SVG elements as children as long as they are valid children of the `<svg>` element. The `{{yield}}` is at the bottom, so the children will be placed below any other content in the SVG. (Keep in mind the coordinate space is determined by the `viewBox`.)
 
-```gts
+```gjs
 import Butterfly from '../icons/butterfly.svg?component';
 
 <template>
