@@ -1,5 +1,16 @@
 # Changelog
 
+## Release (2025-07-10)
+
+* svg2ember 1.0.1 (patch)
+
+#### :memo: Documentation
+* `svg2ember`
+  * [#18](https://github.com/tcjr/svg2ember/pull/18) Fix code snippets ([@tcjr](https://github.com/tcjr))
+
+#### Committers: 1
+- Tom Carter ([@tcjr](https://github.com/tcjr))
+
 ## Release (2025-07-01)
 
 * svg2ember 1.0.0 (major)
